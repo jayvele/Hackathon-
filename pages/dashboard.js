@@ -50,6 +50,34 @@ export default function Dashboard({ user, students }) {
   const [prompt, setPrompt] = React.useState("");
   const [completion, setCompletion] = React.useState("");
 
+  const [data, setData] = useState({
+    "Id": "",
+    "weakSub": "",
+    "strongSub": "",
+    "schedulePref": "",
+    "materialPref": "",
+    "pastAnalysis":""
+  })
+
+useEffect(() => {
+  // Using fetch to fetch the api from 
+  // flask server it will be redirected to proxy
+  fetch("/data").then((res) =>
+      res.json().then((data) => {
+          // Setting a data from api
+          setdata({
+            Id: data.Id,
+            weakSub: data.weakSub,
+            strongSub: data.strongSub ,
+            schedulePref: data.schedulePref,
+            materialPref: data.materialPref,
+            pastAnalysis: data.pastAnalysis 
+          });
+      })
+      .then(console.log(data.Id, data.weakSub, data.strongSub, data.schedulePref, data.materialPref, data.pastAnalysis))
+  );
+    }, []);
+
   const handleInput = React.useCallback((e) => {
     setValue(e.target.value);
   }, []);

@@ -9,6 +9,7 @@
     "lint": "next lint",
     "test": "env-cmd mocha test/**/*.js"
   },
+  "proxy":"http://localhost:5000/",
   "dependencies": {
     "@babel/core": "^7.20.2",
     "@babel/preset-env": "^7.20.2",
