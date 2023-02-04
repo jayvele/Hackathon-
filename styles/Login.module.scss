@@ -1,0 +1,124 @@
+.title {
+  background: $classroom-primary-color;
+  height: 100vh;
+}
+.parent {
+  display: flex;
+  height: 100vh;
+  background-color: #fff;
+}
+.logoside {
+  position: relative;
+  width: 50%;
+  .imagecontainer {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 60%;
+    transform: translate(-50%, -50%);
+  }
+}
+.loginside {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 50%;
+  background-color: $classroom-primary-color;
+  form {
+    width: auto;
+    display: inline-block;
+    margin: auto;
+  }
+  input {
+    outline: none;
+    border: none;
+    background-color: transparent;
+    color: #fff;
+    padding: 0;
+    font-size: 1em;
+    width: 85%;
+    margin: 0;
+  }
+  .nextRadio {
+    color: #fff;
+    margin-bottom: 0.5em;
+    font-size: 0.9em;
+    + div > div {
+      box-shadow: $primary-box-shadow;
+    }
+  }
+  .inputContainer {
+    box-shadow: $primary-box-shadow;
+    margin-bottom: 1.7em;
+    border-radius: 7px;
+    height: 2.7em;
+    min-width: 310px;
+    padding: 1.1em;
+    border: 1.5px solid #fff;
+    display: flex;
+    gap: 1em;
+    align-items: center;
+    // justify-content: space-between;
+  }
+  input:focus {
+    outline: none;
+  }
+  button {
+    box-shadow: $primary-box-shadow;
+    cursor: pointer;
+    color: $classroom-primary-color;
+    width: 100%;
+    background-color: #fff;
+    font-size: 1.1em;
+    padding: 0.5em 1em;
+    border: 1px solid #fff;
+    border-radius: 5px;
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
+      rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+  }
+}
+@media (max-width: 1000px) {
+  .loginside {
+    width: 95%;
+    .inputContainer {
+      width: auto;
+    }
+  }
+}
+@media (max-width: 510px) {
+  .logoside {
+    display: none;
+  }
+  .loginside {
+    width: 100%;
+  }
+}
+
+.signup {
+  color: #fff;
+  padding: 1em 0 0.5em;
+  display: inline-block;
+  cursor: pointer;
+  border: none;
+  border-bottom: 1px dashed;
+  border-width: 2px;
+}
+@mixin placeholder {
+  &::-webkit-input-placeholder {
+    @content;
+  }
+  &:-moz-placeholder {
+    @content;
+  }
+  &::-moz-placeholder {
+    @content;
+  }
+  &:-ms-input-placeholder {
+    @content;
+  }
+}
+.input {
+  @include placeholder {
+    color: #fff;
+  }
+}

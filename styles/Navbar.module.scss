@@ -1,0 +1,125 @@
+@mixin smooth-hover {
+  a {
+    text-decoration: none;
+    color: #000;
+    position: relative;
+  }
+  a::after {
+    content: '';
+    bottom: -7px;
+    height: 2px;
+    width: 0;
+    transition: all 0.4s ease-out;
+    left: 0;
+    right: 0;
+    background: $classroom-primary-color;
+    position: absolute;
+  }
+  a:hover::after {
+    width: 100%;
+  }
+}
+.sidebarOpen {
+  > div {
+    box-sizing: border-box;
+    padding: 1.5em 0;
+    transition: all 0.4s;
+    width: 20%;
+  }
+}
+.sidebarClosed {
+  > div {
+    box-sizing: border-box;
+    width: 0;
+    padding: 1.5em 0;
+    transition: all 0.4s;
+    overflow: hidden;
+  }
+}
+.navbar {
+  font-family: $nats-font;
+  z-index: 40;
+  // div{
+  // background: #fff;
+  // }
+  background: #fff;
+  // font-family: $magra-font;
+  user-select: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  padding: 0.7em 3em;
+  padding-left: 2em;
+
+  box-shadow: $primary-box-shadow;
+  .brand {
+    cursor: pointer;
+    color: $classroom-primary-color;
+    align-self: flex-start;
+    font-family: $nats-font;
+    flex-basis: 1;
+    font-size: 2em;
+  }
+  li {
+    list-style-type: none;
+    ul {
+      display: inline;
+      padding: 0 1.5em;
+      cursor: pointer;
+      margin: 0;
+      list-style-type: none;
+
+      @include smooth-hover;
+    }
+    ul:hover {
+      font-weight: bold;
+    }
+  }
+}
+
+.hamburger {
+  font-size: 1.7em;
+  cursor: pointer;
+  display: none;
+}
+.smallnav {
+  display: flex;
+  margin: 1em auto;
+  margin-top: 1em;
+  align-items: center;
+  gap: 2em;
+  display: none;
+  transition: all 0.5s;
+  div {
+    margin-right: 2em;
+  }
+
+  @include smooth-hover;
+  flex-direction: column;
+}
+
+@media (max-width: 975px) {
+  .sidebarOpen {
+    > div {
+      width: 40%;
+    }
+  }
+}
+@media (min-width: 850px) {
+  .smallnav {
+    display: none;
+  }
+}
+
+.loadingScreen {
+  animation: fadeOut 1s 1s linear forwards;
+}
+@keyframes fadeOut {
+  0% {
+    opacity: 100%;
+  }
+  99% {
+    opacity: 0%;
+  }
+}

@@ -1,0 +1,110 @@
+.main {
+  font-family: $nats-font;
+  * {
+    font-family: $nats-font;
+  }
+}
+.quiz {
+  * {
+    font-family: $nats-font;
+    font-size: 18px;
+  }
+  .optionicon {
+    border-radius: 9999px;
+    height: 4px;
+    width: 4px;
+    padding: 5px;
+    border: 4px #eee;
+    cursor: pointer;
+  }
+  .inactiveoption {
+    border-radius: 9999px;
+    height: 1px;
+    width: 1px;
+    padding: 5px;
+    border: 4px solid #eee;
+    cursor: pointer;
+    background: #fff;
+  }
+  .activeoption {
+    border-radius: 9999px;
+    height: 1px;
+    width: 1px;
+    padding: 5px;
+    border: 4px solid #eee;
+    cursor: pointer;
+    background-color: #7cdf7e;
+  }
+  input {
+    outline: none;
+    background-color: transparent;
+    padding: 0;
+    border: 2px solid $honey-yellow;
+    border-radius: 10px;
+    padding: 0.5em 1em;
+    font-size: 1em;
+    width: 100%;
+    margin: 0;
+  }
+  .inputContainer {
+    box-shadow: $primary-box-shadow;
+    margin-bottom: 1.7em;
+    border-radius: 7px;
+    height: 2.7em;
+    min-width: 310px;
+    padding: 1.1em;
+    border: 1.5px solid #fff;
+    display: flex;
+    gap: 1em;
+    align-items: center;
+    // justify-content: space-between;
+  }
+}
+.option {
+  width: 100%;
+  input {
+    outline: none;
+    background-color: transparent;
+    padding: 0;
+    border: 2px solid $blue-jeans;
+    border-radius: 10px;
+    padding: 0.5em 1em;
+    font-size: 1em;
+    width: 100%;
+    margin: 0;
+  }
+}
+.mainQuiz {
+  * {
+    font-family: $nats-font;
+    font-size: 17px;
+  }
+  h1 {
+    font-size: 1.3em;
+  }
+  > div > div > div {
+    > input:not([type='checkbox']) {
+      outline: none;
+      background-color: transparent;
+      padding: 0;
+      display: inline;
+      border: 2px solid $gunmetal;
+      border-radius: 10px;
+      padding: 0.5em 1em;
+      font-size: 1em;
+      width: 30%;
+      margin: 0;
+    }
+    > input[type='checkbox'] {
+      height: 40px;
+    }
+  }
+}
+
+.teacherQuiz {
+  font-size: 16px;
+  width: 60%;
+  * {
+    font-size: 16px;
+  }
+}

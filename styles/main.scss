@@ -1,0 +1,45 @@
+@import url('https://fonts.googleapis.com/css2?family=Lily+Script+One&family=Magra&display=swap');
+@import url('http://fonts.cdnfonts.com/css/nats');
+@import url('https://fonts.googleapis.com/css2?family=Maven+Pro&family=Montserrat&family=Sen&display=swap');
+//  colors
+$classroom-primary-color: rgba(84, 99, 255, 0.8);
+$white: #fff;
+$black: #000;
+$blue-jeans: #4cb7f7;
+$red-ryb: #ff4328;
+$ghost-white: #f6f4f9;
+$honey-yellow: #ffb60a;
+$gunmetal: #282c35;
+
+//  fonts
+$magra-font: 'Magra', sans-serif;
+$lily-font: 'Lily Script One', cursive;
+$nats-font: 'Montserrat', sans-serif;
+$nats-font: 'Maven Pro', sans-serif;
+$nats-font: 'Sen', sans-serif;
+
+//  customs
+$primary-box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
+  rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+
+$mild-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px,
+  rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+
+$moderate-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px,
+  rgba(0, 0, 0, 0.23) 0px 3px 6px;
+
+@mixin standard-hr() {
+  hr {
+    height: 2px;
+    width: 60%;
+
+    border: none;
+    background-color: $fortitude-primary-color;
+  }
+}
+@mixin primary-h1 {
+  h1 {
+    font-size: 1.7em;
+    font-family: $magra-font;
+  }
+}
