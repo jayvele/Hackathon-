@@ -151,6 +151,7 @@ useEffect(() => {
 
   useEffect(() => {
     getClasses();
+    // uploader();
   }, []);
 
   const handleSubmit = (data) => {
@@ -196,9 +197,9 @@ useEffect(() => {
     const uploader = () => {
       const data = 'capturenow';
 
-      fetch('http://localhost:8000/checkawr', {
-        method: 'POST',
-        body: data,
+      fetch('http://localhost:5000/checkawr', {
+        method: 'GET'
+        // body: data,
       }).then((response) => {
         response.json().then((body) => {
           console.log("Done")

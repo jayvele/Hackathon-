@@ -3,9 +3,9 @@ import cv2
 
 import datetime
   
-face_cascade = cv2.CascadeClassifier("D:/sem6/Hackathon-/backend/haarcascade_frontalface_default.xml") 
+face_cascade = cv2.CascadeClassifier("C:/Users/Omkar/OneDrive/Documents/Coding files/ReactProjects/hackathon2023-main/backend/haarcascade_frontalface_default.xml") 
   
-eye_cascade = cv2.CascadeClassifier("D:/sem6/Hackathon-/backend/haarcascade_eye_tree_eyeglasses.xml")  
+eye_cascade = cv2.CascadeClassifier("C:/Users/Omkar/OneDrive/Documents/Coding files/ReactProjects/hackathon2023-main/backend/haarcascade_eye_tree_eyeglasses.xml")  
 
 x = datetime.datetime.now()
   
@@ -35,13 +35,13 @@ def checkawr():
     # img = cv2.imread((JSON.parse(cap))[0])
     # convert to gray scale of each frames 
     cap = cv2.VideoCapture(0)
-    ret, img = cv2.read(cap)
+    ret,img = cap.read()
     gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY) 
   
     # Detects faces of different sizes in the input image 
     faces = face_cascade.detectMultiScale(gray, 1.3, 5) 
     if type(faces) is tuple:
-        return false
+        return [{'res':0}]
     
     for (x,y,w,h) in faces: 
         # To draw a rectangle in a face  
@@ -52,12 +52,14 @@ def checkawr():
         # Detects eyes of different sizes in the input image 
         eyes = eye_cascade.detectMultiScale(roi_gray)  
         if type(eyes) is tuple :
-            return false
+                    return [{'res':0}]
+
     
     # De-allocate any associated memory usage 
     cv2.destroyAllWindows()  
     
-    return True
+    return [{'res':1}]
+
     
     
       
