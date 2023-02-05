@@ -28,7 +28,7 @@ def get_time():
         }
 
 @app.route('/checkawr')
-def checkawr(cap):
+def checkawr():
     
     # image
     # img = cv2.imread('D:/sem6/SPIT_H2023/SPIT_H2023/backend/noface.jpg')
