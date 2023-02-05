@@ -33,11 +33,9 @@ def checkawr():
     # image
     # img = cv2.imread('D:/sem6/SPIT_H2023/SPIT_H2023/backend/noface.jpg')
     # img = cv2.imread((JSON.parse(cap))[0])
-    # convert to gray scale of each frames
+    # convert to gray scale of each frames 
     cap = cv2.VideoCapture(0)
-    ret,img=img = cv2.read(cap) 
-
- 
+    ret, img = cv2.read(cap)
     gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY) 
   
     # Detects faces of different sizes in the input image 

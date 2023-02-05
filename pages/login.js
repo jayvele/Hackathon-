@@ -21,7 +21,7 @@ export async function getServerSideProps({ req, res }) {
     return {
       redirect: {
         permanent: false,
-        destination: "/signupDetails",
+        destination: "/dashboard",
       },
       props: {},
     };
@@ -55,7 +55,7 @@ export default function Login({ loggingout }) {
       const res = await axios.post("/api/auth/signin", obj);
       router.push("/dashboard");
 
-      // toast.success("Logged In");
+      toast.success("Logged In");
     } catch (error) {
       // alert.current.innerText = error.response.data.message;
       // alert.current.style.display = "block";

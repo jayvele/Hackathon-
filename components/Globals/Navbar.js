@@ -86,7 +86,7 @@ export default function NavbarCommon({
               </div>
             </div>
             <Link href={'/dashboard'}>
-              <div className={styles.brand}>MyClassroom</div>
+              <div className={styles.brand}>Personal Prof</div>
             </Link>
           </div>
 
