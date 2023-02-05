@@ -11,7 +11,7 @@ import { userContext } from "../components/userContext";
 import { NextPage } from 'next';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import Webcam from 'react-webcam'
+// import Webcam from 'react-webcam'
 import {Component} from 'react'
 
 
