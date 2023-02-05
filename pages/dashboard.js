@@ -1,4 +1,4 @@
-import React, { useState, useContext, useEffect } from "react";
+import React, { useState, useContext, useEffect , useRef} from "react";
 import getUser from "../lib/getUser";
 import { Wrapper, NavbarCommon, InputModal, ClassCard } from "../components";
 import Head from "next/head";
@@ -7,20 +7,30 @@ import { IoIosAdd } from "react-icons/io";
 import axios from "axios";
 import { Spinner } from "react-bootstrap";
 import { db } from "../lib/mongo";
-import { toast } from "react-toastify";
 import { userContext } from "../components/userContext";
 import { NextPage } from 'next';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import Webcam from 'react-webcam'
+import {Component} from 'react'
+
 
 export async function getServerSideProps({ req, res }) {
   process.env.TZ = "Asia/Kolkata";
   const user = await getUser(req, res);
   let students = [];
+
+
   if (user.usertype === "teacher") {
     students = await db.getFields("users", { usertype: "student" });
     students = students.map((e) => {
       delete e._id;
       return e;
     });
+  }
+  
+  if (user.usertype === 'student'){
+    
   }
   if (!user) {
     return {
@@ -49,7 +59,7 @@ export default function Dashboard({ user, students }) {
   const [value, setValue] = React.useState("");
   const [prompt, setPrompt] = React.useState("");
   const [completion, setCompletion] = React.useState("");
-
+  const notify = () => toast("Hope you're not sleepy!!");
   const [data, setData] = useState({
     "Id": "",
     "weakSub": "",
@@ -59,13 +69,26 @@ export default function Dashboard({ user, students }) {
     "pastAnalysis":""
   })
 
+  
+    
+  const WebcamComponent = () => <Webcam />
+  const videoConstraints = {
+    width: 400,
+    height: 400,
+    facingMode: 'user',
+  }
+
+
 useEffect(() => {
   // Using fetch to fetch the api from 
   // flask server it will be redirected to proxy
+  
+
+
   fetch("/data").then((res) =>
       res.json().then((data) => {
           // Setting a data from api
-          setdata({
+          setData({
             Id: data.Id,
             weakSub: data.weakSub,
             strongSub: data.strongSub ,
@@ -75,9 +98,10 @@ useEffect(() => {
           });
       })
       .then(console.log(data.Id, data.weakSub, data.strongSub, data.schedulePref, data.materialPref, data.pastAnalysis))
-  );
-    }, []);
+  );
+  },[]);
 
+  
   const handleInput = React.useCallback((e) => {
     setValue(e.target.value);
   }, []);
@@ -167,25 +191,41 @@ useEffect(() => {
     }
   };
 
+
+
+    const uploader = () => {
+      const data = 'capturenow';
+
+      fetch('http://localhost:8000/checkawr', {
+        method: 'POST',
+        body: data,
+      }).then((response) => {
+        response.json().then((body) => {
+          console.log("Done")
+        });
+      });
+    }
+
   return (
     <>
       <Head>
-        <title>MyClassroom Dashboard</title>
+        <title>Personal Prof Dashboard</title>
       </Head>
       <NavbarCommon current="dash" user={user} />
       <Wrapper>
+        <div className="flex justify-content-space-between" >
         <div className={styles.main}>
           <div className="px-4">
             <div className="pt-2 pb-3">
-              <div>Please type your prompt</div>
+              <div>Ask your doubt!!</div>
               <input
                 value={value}
                 onChange={handleInput}
                 onKeyDown={handleKeyDown}
               />
-              <div>Prompt: {prompt}</div>
+              <div>Question: {prompt}</div>
               <div>
-                Completion:{" "}
+                Answer:{" "}
                 {completion.split("\n").map((item) => (
                   <>
                     {item}
@@ -193,6 +233,13 @@ useEffect(() => {
                   </>
                 ))}
               </div>
+              </div>
+             
+              </div>
+        </div>
+        <div>
+          <div>
+            <div>
               <h4 className="mb-3">Classrooms</h4>
               {loading ? (
                 <div className="p-5 mx-auto">
@@ -212,6 +259,7 @@ useEffect(() => {
               )}
             </div>
           </div>
+        </div>
         </div>
         <InputModal
           state={modal}

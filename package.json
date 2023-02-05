@@ -9,7 +9,7 @@
     "lint": "next lint",
     "test": "env-cmd mocha test/**/*.js"
   },
-  "proxy":"http://localhost:5000/",
+  "proxy": "http://localhost:5000/",
   "dependencies": {
     "@babel/core": "^7.20.2",
     "@babel/preset-env": "^7.20.2",
@@ -42,7 +42,8 @@
     "react-detect-click-outside": "^1.1.7",
     "react-dom": "18.2.0",
     "react-icons": "^4.6.0",
-    "react-toastify": "^9.0.8",
+    "react-toastify": "^9.1.1",
+    "react-webcam": "^7.0.1",
     "sass": "^1.55.0",
     "save-dev": "^0.0.1-security"
   },
