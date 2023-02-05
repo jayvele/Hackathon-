@@ -144,6 +144,7 @@ const QuizAttempt = ({ qdata, classdata, user, startQ, qno, submitted }) => {
             })}
           </div>
         </div>
+        
       </div>
     );
   }
